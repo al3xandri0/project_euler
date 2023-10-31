@@ -1,10 +1,7 @@
-Create object file with debugging symbols:
-	nasm -f elf64 -g -o {object_file} {asm_file}
-
-Create ELF:
-	ld -o {executable_file} {object_file}
+This README is just a placeholder to remind me of how to interact with GDP and for other random tips that may be beneficial for me and/or anyone reading when stepping through code.
 
 GDB Tips:
+	CTRL + X, A     = open TUI (Text User Interface)
 	step 			= step to next function
 	stepi 			= step to next instruction
 	i r {reg}		= view value in register e.g. i r eax
