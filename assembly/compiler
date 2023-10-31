@@ -7,14 +7,14 @@ import subprocess
 def compile_assembly_file(assembly_file, object_file):
     try:
         # Use nasm to compile the assembly code and make it into an object file
-        subprocess.run(["nasm", "-f", "elf64", "-g", "-o", object_file, assembly_file], check=True)
+        subprocess.run(["nasm", "-f", "elf32", "-g", "-o", object_file, assembly_file], check=True)
     except subprocess.CalledProcessError as e:
         print(f"Compilation failed with error:\n{e}")
 
 def create_executable(assembly_file, object_file, executable_file):
     try:
         # Use ld to link the object file and create an executable
-        subprocess.run(["ld", "-o", executable_file, object_file], check=True)
+        subprocess.run(["ld", "-m", "elf_i386", "-o", executable_file, object_file], check=True)
         #os.remove(object_file)  # Delete the object file
     except subprocess.CalledProcessError as e:
         print(f"Executable creation failed with error:\n{e}")
