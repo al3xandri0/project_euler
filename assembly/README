@@ -1,0 +1,13 @@
+Create object file with debugging symbols:
+	nasm -f elf64 -g -o {object_file} {asm_file}
+
+Create ELF:
+	ld -o {executable_file} {object_file}
+
+GDB Tips:
+	step 			= step to next function
+	stepi 			= step to next instruction
+	i r {reg}		= view value in register e.g. i r eax
+	break {fun} 	= set breakpoint at specified function
+	run				= run program
+	disassemble 	= show disassembled code for current function
